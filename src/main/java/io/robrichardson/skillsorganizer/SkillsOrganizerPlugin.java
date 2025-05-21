@@ -16,6 +16,8 @@ import net.runelite.client.callback.ClientThread;
 import java.awt.Color;
 import java.util.Objects;
 import net.runelite.api.events.GameStateChanged;
+import static net.runelite.api.widgets.ComponentID.SKILLS_CONTAINER;
+import static net.runelite.api.widgets.WidgetUtil.componentToId;
 
 @Slf4j
 @PluginDescriptor(
@@ -78,7 +80,7 @@ public class SkillsOrganizerPlugin extends Plugin
 	}
 
 	private void setupSkillBars() {
-		Widget skillsContainer = client.getWidget(WidgetInfo.SKILLS_CONTAINER);
+		Widget skillsContainer = client.getWidget(SKILLS_CONTAINER);
 		if (skillsContainer == null) {
 			return;
 		}
@@ -88,7 +90,7 @@ public class SkillsOrganizerPlugin extends Plugin
 				clientThread.invokeLater(this::setupSkillBars);
 				return;
 			}
-			int idx = WidgetInfo.TO_CHILD(skillTile.getId()) - 1;
+			int idx = componentToId(skillTile.getId()) - 1;
 			SkillOrganizerData skillOrganizerData = SkillOrganizerData.get(idx);
 			if(skillOrganizerData == null) continue;
 
@@ -134,7 +136,7 @@ public class SkillsOrganizerPlugin extends Plugin
 	}
 
 	private SkillWidgetGroup buildWidgetGroup (Widget skillTile) {
-		int idx = WidgetInfo.TO_CHILD(skillTile.getId()) - 1;
+		int idx = componentToId(skillTile.getId()) - 1;
 
 		Widget left = skillTile.createChild(-1, WidgetType.GRAPHIC);
 		left.setSpriteId(174);
@@ -190,13 +192,13 @@ public class SkillsOrganizerPlugin extends Plugin
 	}
 
 	private void resetSkillBars() {
-		Widget skillsContainer = client.getWidget(WidgetInfo.SKILLS_CONTAINER);
+		Widget skillsContainer = client.getWidget(SKILLS_CONTAINER);
 		if (skillsContainer == null) {
 			return;
 		}
 
 		for (Widget skillTile : skillsContainer.getStaticChildren()) {
-			int idx = WidgetInfo.TO_CHILD(skillTile.getId()) - 1;
+			int idx = componentToId(skillTile.getId()) - 1;
 			SkillOrganizerData skillOrganizerData = SkillOrganizerData.get(idx);
 			if(skillOrganizerData == null) continue;
 
