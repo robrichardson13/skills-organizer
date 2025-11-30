@@ -31,7 +31,7 @@ public enum SkillOrganizerData {
     FIREMAKING(Skill.FIREMAKING, SkillsOrganizerConfig.SkillPositionOption.TWENTY_ONE, SkillsOrganizerConfig::firemakingPosition, SkillsOrganizerConfig::firemakingVisibility),
     WOODCUTTING(Skill.WOODCUTTING, SkillsOrganizerConfig.SkillPositionOption.TWENTY_TWO, SkillsOrganizerConfig::woodcuttingPosition, SkillsOrganizerConfig::woodcuttingVisibility),
     FARMING(Skill.FARMING, SkillsOrganizerConfig.SkillPositionOption.TWENTY_THREE, SkillsOrganizerConfig::farmingPosition, SkillsOrganizerConfig::farmingVisibility),
-    OVERALL(Skill.OVERALL, SkillsOrganizerConfig.SkillPositionOption.TWENTY_FOUR, SkillsOrganizerConfig::overallPosition, SkillsOrganizerConfig::overallVisibility),
+    SAILING(Skill.SAILING, SkillsOrganizerConfig.SkillPositionOption.TWENTY_FOUR, SkillsOrganizerConfig::sailingPosition, SkillsOrganizerConfig::sailingVisibility),
     ;
 
     private final Skill skill;
